@@ -1,0 +1,85 @@
+body {
+  min-height: 1000px;
+  padding-top: 70px;
+  background: url(img/wood_pattern.png)
+}
+
+
+
+.col-md-3 {
+width: 25%;
+padding-left: 25px;
+}
+
+a {
+color: #428bca;
+text-decoration: none;
+font-size: 35px;
+padding-left: 20px;
+}
+
+.footer{
+	height: 358px;
+	background-color: red;
+	
+	
+}
+
+.navbar-default {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  height: 0px;
+  /*height: 100px;*/
+}
+
+.navbar-nav {
+background-color: gold;
+}
+
+.jumbotron {
+  padding: 30px;
+  margin-top: 230px;
+  margin-bottom: 30px;
+  margin-left:25px;
+  color: inherit;
+  background-color: #eee;
+}
+
+.jumbotronworkout {
+  padding: 30px;
+  margin-top: 230px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #eee;
+}
+
+
+.navbar-nav {
+float: left;
+margin: 0;
+padding-left: 20px;
+padding-top: 10px;
+}
+
+.navbar .nav,
+.navbar .nav > li {
+  float:none;
+  display:inline-block;
+  *display:inline; /* ie7 fix */
+  *zoom:1; /* hasLayout ie7 trigger */
+  vertical-align: top;
+}
+
+.navbar-inner {
+  text-align:center;
+}
+
+.video-container { 
+   position: relative; /* keeps the aspect ratio */ 
+   padding-bottom: 56.25%; /* fine tunes the video positioning */ 
+   padding-top: 60px; overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }

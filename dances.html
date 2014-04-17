@@ -9,13 +9,17 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Keep Moving Home</title>
+    <title>Keep Moving Dances</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="navbar-fixed-top.css" rel="stylesheet">
+    
+    
+	  <link href="css/ekko-lightbox.css" rel="stylesheet" />
+
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -28,7 +32,16 @@
   </head>
 
   <body>
-
+  
+  <div class="container">
+  	
+  
+<div id="demoLightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">
+	<div class='lightbox-content'>
+		<img src="image.png">
+		<div class="lightbox-caption"><p>Your caption here</p></div>
+	</div>
+</div>
     <!-- Fixed navbar -->
     <div class=" navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -60,17 +73,31 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="video-container">
-  			<iframe width="300" height="168" src="http://www.youtube.com/embed/72rpElxj_pM?rel=0" frameborder="0" allowfullscreen></iframe>
-		</div>
-        
+      <div class="jumbotronworkout">
+        <div class="row">
+  			<div class="span12">
+  				<div class="row">
+                                <a href="http://vimeo.com/80629469" data-remote="http://player.vimeo.com/video/80629469" data-toggle="lightbox" data-gallery="mixedgallery" class="col-sm-4">
+                                    <img src="image.jpg" class="img-responsive">
+                                </a>
+                                <a href="http://vimeo.com/80629469" data-remote="http://player.vimeo.com/video/80629469" class="col-sm-4">
+                                    <img src="image.jpg" class="img-responsive">
+                                </a>
+                                <a href="http://vimeo.com/80629469" data-remote="http://player.vimeo.com/video/80629469" data-toggle="lightbox" data-gallery="mixedgallery" class="col-sm-4">
+                                    <img src="image.jpg" class="img-responsive">
+                                </a>
+                	</div>
+                </div>
+  			</div>
+  		</div>
       </div>
- 	 	
+
+
+
     </div> <!-- /container -->
     
     <div class="container">
-    	<footer class="col-md-12">
+    	<footer class=" col-md-12">
     		<div class-"row">
     			<div class="col-md-3"><img src="img/02_facebook.PNG" alt="KMM Banner"></div>
     			<div class="col-md-3"><img src="img/01_twitter.PNG" alt="KMM Banner"></div>
@@ -81,10 +108,50 @@
     </div>
 
 
-    <!-- Bootstrap core JavaScript
+   <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script src="js/jquery.js"></script>
+		<!-- yea, yea, not a cdn, i know -->
+		<script src="js/ekko-lightbox.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function ($) {
+
+				// delegate calls to data-toggle="lightbox"
+				$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+					event.preventDefault();
+					return $(this).ekkoLightbox({
+						onShown: function() {
+							if (window.console) {
+								return console.log('Checking our the events huh?');
+							}
+						}
+					});
+				});
+
+				//Programatically call
+				$('#open-image').click(function (e) {
+					e.preventDefault();
+					$(this).ekkoLightbox();
+				});
+				$('#open-youtube').click(function (e) {
+					e.preventDefault();
+					$(this).ekkoLightbox();
+				});
+			});
+		</script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-43208246-2', 'ashleydw.github.io');
+		  ga('send', 'pageview');
+		</script>
   </body>
 </html>

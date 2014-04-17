@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Keep Moving Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar-fixed-top.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" media="screen, projection">
+<link href="css/transitions.css" rel="stylesheet" media="screen, projection">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/modernizr.2.5.3.min.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/custom_survey.js"></script>
+<script type="text/javascript" src="js/jquery.columnizer.min.js"></script>
+<script type="text/javascript" src="js/html5slider.js"></script>
+<script>
+ $(document).ready(function() {
+   $('.column').columnize({ columns: 2 });
+ 	$("#review").click(function () { 
+		interestsChecked = $('.interests:checked').map(function() {
+			return $(this).val();
+		}).get();
+		$("#interestsResult").html('<strong>Interests: </strong>');
+		$("#interestsResult").append(interestsChecked.join(', '));
+		
+		sharedChecked = $('.shared:checked').map(function() {
+			return $(this).val();
+		}).get();
+		$("#sharedResult").html('<strong>Shared: </strong>');
+		$("#sharedResult").append(sharedChecked.join(', '));	
+	});
+});
+   	// Update text field for slider
+	function printValue(sliderID, textbox) {
+		var x = document.getElementById(textbox);
+		var y = document.getElementById(sliderID);
+		x.value = y.value;
+	}
+	window.onload = function() { 
+		printValue('hoursPractice', 'hoursPracticeValue');
+	}
+</script>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class=" navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+      <div class=" col-md-12">
+      	<img src="img/KMM_banner.PNG" alt="KMM Banner" width="1140" height="228">
+      </div>
+      
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="mf.html">Keep Me Moving</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="workout.html">Workouts</a></li>
+            <li><a href="thestory.html">The Story</a></li>
+            <li><a href="dances.html">Learn The Dances</a></li>
+          </ul>
+          
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron" style="background-color:white; margin-left: -90px;
+margin-right: 90px;">
+        <div class="video-container">
+  			<article id="mainContent">
+  <h1>Student Survey Cube</h1>
+  <p>We&rsquo;ve been providing fine art and design education for over 150 years, but we're very much focused on the present and future. Please take the short survey below to help us better understand&#8212;and fulfill&#8212;your desires and needs. </p>
+  <div id="theArt">
+    <div id="cube" class="show-front">
+      <form  id="theForm" method="post" action="thanks.htm">
+        <div class="front panel">
+          <div class="innerContainer">
+            <h2>Q 1/5</h2>
+            <p>What subject(s) are you most interested in? <br>
+              (Check as many as you like.)</p>
+            <div class="column">
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_0" value="Architecture" />
+                  Architecture</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_1" value="Ceramics"/ >
+                  Ceramics</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_2" value="Film/Video" / >
+                  Film/Video</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_3" value="Glass" />
+                  Glass</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_4" value="Graphic Design" />
+                  Graphic Design</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_5" value="Illustration" />
+                  Illustration</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_6" value="Jewelry" />
+                  Jewelry</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_7" value="Metalsmithing">
+                  Metalsmithing</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_8" value="Photography" />
+                  Photography</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_9" value="Printmaking" />
+                  Printmaking</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_10" value="Sculpture" />
+                  Sculpture</label>
+              </p>
+              <p>
+                <label>
+                  <input name="interests_" type="checkbox" class="interests" id="interests_11" value="Textiles" />
+                  Textiles</label>
+              </p>
+            </div>
+            <p class="show-buttons">
+              <input type="button" class="show-back alignRight" value="Next" />
+            </p>
+          </div>
+        </div>
+        <div class="back cf panel">
+          <div class="innerContainer">
+            <h2>Q 2/5</h2>
+            <p>What area of study didn’t you see that you wish you did?</p>
+            <p>
+              <input id="desiredCourse" type="text" placeholder="Desired course" /></p>
+            <p class="show-buttons">
+              <input type="button" class="show-front alignLeft" value="Previous" />
+              <input type="button" class="show-right alignRight" value="Next" />
+            </p>
+          </div>
+        </div>
+        <div class="right cf panel">
+          <div class="innerContainer">
+            <h2>Q 3/5</h2>
+            <p>How long have you thought of yourself as an artist?</p>
+           <p>
+              <input type="radio" id="artistLength1" name="artistLength" value="Since I was a kid" />
+              <label>Since I was a kid.</label>
+            </p>
+            <p>
+              <input type="radio" id="artistLength2" name="artistLength" value="Since high school" />
+              <label>Since high school.</label>
+            </p>
+            <p>
+              <input type="radio" id="artistLength3" name="artistLength" value="Less than a year" />
+              <label>Less than a year.</label>
+            </p>
+            <p>
+              <input type="radio" id="artistLength4" name="artistLength" value="All my life" />
+              <label>All my life.</label>
+            </p>
+            <p>
+              <input type="radio" id="artistLength5" name="artistLength" value="I don't" />
+              <label>I don't.</label>
+            </p>
+            <p class="show-buttons">
+              <input type="button" class="show-back alignLeft" value="Previous" />
+              <input type="button" class="show-left alignRight" value="Next" />
+            </p>
+          </div>
+        </div>
+        <div class="left cf panel">
+          <div class="innerContainer">
+            <h2>Q 4/5</h2>
+            <p>How many hours a day do you practice your art?</p>
+            <p>
+              <input type="range" min="0" max="24" value="0" id="hoursPractice" onchange="printValue('hoursPractice','hoursPracticeValue')" />
+            </p>
+            <p>
+              <input type="text" id="hoursPracticeValue" placeholder="Move slider from 0 to 24 hours" />
+            </p>
+            <p class="show-buttons">
+              <input type="button" class="show-right alignLeft" value="Previous" />
+              <input type="button" class="show-top alignRight" value="Next" />
+            </p>
+          </div>
+        </div>
+        <div class="top cf panel">
+          <div class="innerContainer">
+            <h2>Q 5/5</h2>
+            <p>Who have you shared your work with?<br>
+              (Check all that apply.)</p>
+              <label>
+                <input class="shared" type="checkbox" name="viewers_" value="Family" id="viewers_0" />
+                Family</label>
+            </p>
+            <p>
+              <label>
+                <input class="shared" type="checkbox" name="viewers_" value="Friends" id="viewers_0" />
+                Friends</label>
+            </p>
+            <p>
+              <label>
+                <input class="shared" type="checkbox" name="viewers_" value="Teachers and classmates" id="viewers_0" />
+                Teachers and classmates</label>
+            </p>
+            <p>
+              <label>
+                <input class="shared" type="checkbox" name="viewers_" value="Public showing" id="viewers_0" />
+                The public in a showing</label>
+            </p>
+            <p>
+              <label>
+                <input class="shared" type="checkbox" name="viewers_" value="No one" id="viewers_0" />
+                No one</label>
+            </p>
+            <p class="show-buttons">
+              <input type="button" class="show-left alignLeft" value="Previous" />
+              <input id="review" type="button" class="show-bottom alignRight" value="Next" />
+            </p>
+          </div>
+        </div>
+        <div class="bottom cf panel">
+          <div class="innerContainer">
+            <h2>Review / Submit</h2>
+            <p>Please review your responses below and click the related Change button to make any updates. When you're satisfied with your responses, click Submit.</p>
+            <table width="100%">
+              <tr>
+                <td width="15%">Q1:</td>
+                <td id="interestsResult" width="60%"><strong>Interests: </strong></td>
+                <td width="25%" class="show-buttons"><input type="button" class="show-front" value="Modify" /></td>
+              </tr>
+              <tr>
+                <td>Q2:</td>
+                <td id="desiredCourseResult"><strong>Desired: </strong></td>
+                <td class="show-buttons"><input type="button" class="show-back" value="Modify" /></td>
+              </tr>
+              <tr>
+                <td>Q3</td>
+                <td id="artistLengthResult"><strong>Artist: </strong></td>
+                <td class="show-buttons"><input type="button" class="show-right" value="Modify" /></td>
+              </tr>
+              <tr>
+                <td>Q4</td>
+                <td id="hoursPracticeResult"><strong>Hours: </strong></td>
+                <td class="show-buttons"><input type="button" class="show-left" value="Modify" /></td>
+              </tr>
+              <tr>
+                <td>Q5</td>
+                <td id="sharedResult"><strong>Shared: </strong></td>
+                <td class="show-buttons"><input type="button" class="show-top" value="Modify" /></td>
+              </tr>
+            </table>
+            <p>Thank you for taking our survey.</p>
+            <p class="show-buttons">
+              <input type="button" class="show-top alignLeft" value="Previous" />
+              <input type="submit" class="alignRight" value="Submit" />
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</article>
+		</div>
+        
+      </div>
+ 	 	
+    </div> <!-- /container -->
+    
+    <div class="container">
+    	<footer class="col-md-12">
+    		<div class-"row">
+    			<div class="col-md-3"><img src="img/02_facebook.PNG" alt="KMM Banner"></div>
+    			<div class="col-md-3"><img src="img/01_twitter.PNG" alt="KMM Banner"></div>
+    			<div class="col-md-3"><img src="img/03_youtube.PNG" alt="KMM Banner"></div>
+    			<div class="col-md-3"><img src="img/10_instagram.PNG" alt="KMM Banner"></div>
+    		</div>
+    	</div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="js/bootstrap.min.js"></script>
+    
+
+  </body>
+</html>
+
+
+
+
+
+
