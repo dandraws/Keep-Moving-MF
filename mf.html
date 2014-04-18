@@ -9,13 +9,14 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Keep Moving Home</title>
+    <title>Keep Moving Playtime</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="navbar-fixed-top.css" rel="stylesheet">
+    
     <link href="css/main.css" rel="stylesheet" media="screen, projection">
 <link href="css/transitions.css" rel="stylesheet" media="screen, projection">
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
@@ -27,30 +28,97 @@
 <script>
  $(document).ready(function() {
    $('.column').columnize({ columns: 2 });
- 	$("#review").click(function () { 
-		interestsChecked = $('.interests:checked').map(function() {
-			return $(this).val();
-		}).get();
-		$("#interestsResult").html('<strong>Interests: </strong>');
-		$("#interestsResult").append(interestsChecked.join(', '));
-		
-		sharedChecked = $('.shared:checked').map(function() {
-			return $(this).val();
-		}).get();
-		$("#sharedResult").html('<strong>Shared: </strong>');
-		$("#sharedResult").append(sharedChecked.join(', '));	
-	});
+  $("#review").click(function () { 
+    interestsChecked = $('.interests:checked').map(function() {
+      return $(this).val();
+    }).get();
+    $("#interestsResult").html('<strong>Interests: </strong>');
+    $("#interestsResult").append(interestsChecked.join(', '));
+    
+    sharedChecked = $('.shared:checked').map(function() {
+      return $(this).val();
+    }).get();
+    $("#sharedResult").html('<strong>Shared: </strong>');
+    $("#sharedResult").append(sharedChecked.join(', '));  
+  });
 });
-   	// Update text field for slider
-	function printValue(sliderID, textbox) {
-		var x = document.getElementById(textbox);
-		var y = document.getElementById(sliderID);
-		x.value = y.value;
-	}
-	window.onload = function() { 
-		printValue('hoursPractice', 'hoursPracticeValue');
-	}
+    // Update text field for slider
+  function printValue(sliderID, textbox) {
+    var x = document.getElementById(textbox);
+    var y = document.getElementById(sliderID);
+    x.value = y.value;
+  }
+  window.onload = function() { 
+    printValue('hoursPractice', 'hoursPracticeValue');
+  }
 </script>
+
+<script type="text/javascript">
+  var memory_array = ['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','H','I','I','J','J','K','K','L','L'];
+  var memory_values = [];
+  var memory_tile_ids = [];
+  var tiles_flipped = 0;
+
+  Array.prototype.memory_tile_shuffle = function(){
+    var i = this.length, j, temp;
+    while(--i > 0){
+        j = Math.floor(Math.random() * (i+1));
+        temp = this[j];
+        this[j] = this[i];
+        this[i] = temp;
+    }
+}
+function newBoard(){
+  tiles_flipped = 0;
+  var output = '';
+    memory_array.memory_tile_shuffle();
+  for(var i = 0; i < memory_array.length; i++){
+    output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
+  }
+  document.getElementById('memory_board').innerHTML = output;
+}
+
+function memoryFlipTile(tile,val){
+  if(tile.innerHTML == "" && memory_values.length < 2){
+    tile.style.background = 'yellow';
+    tile.innerHTML = val;
+    if(memory_values.length == 0){
+      memory_values.push(val);
+      memory_tile_ids.push(tile.id);
+    } else if(memory_values.length == 1){
+      memory_values.push(val);
+      memory_tile_ids.push(tile.id);
+      if(memory_values[0] == memory_values[1]){
+        tiles_flipped += 2;
+        // Clear both arrays
+        memory_values = [];
+              memory_tile_ids = [];
+        // Check to see if the whole board is cleared
+        if(tiles_flipped == memory_array.length){
+          alert("Board cleared... generating new board");
+          document.getElementById('memory_board').innerHTML = "";
+          newBoard();
+        }
+      } else {
+        function flip2Back(){
+            // Flip the 2 tiles back over
+            var tile_1 = document.getElementById(memory_tile_ids[0]);
+            var tile_2 = document.getElementById(memory_tile_ids[1]);
+            tile_1.style.background = 'url(punch.jpg) no-repeat';
+                  tile_1.innerHTML = "";
+            tile_2.style.background = 'url(punch.jpg) no-repeat';
+                  tile_2.innerHTML = "";
+            // Clear both arrays
+            memory_values = [];
+                  memory_tile_ids = [];
+        }
+        setTimeout(flip2Back, 700);
+      }
+    }
+  }
+}
+
+  </script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -69,7 +137,7 @@
     <div class=" navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
       <div class=" col-md-12">
-      	<img src="img/KMM_banner.PNG" alt="KMM Banner" width="1140" height="228">
+        <img src="img/KMM_banner.PNG" alt="KMM Banner" width="1140" height="228">
       </div>
       
         <div class="navbar-header">
@@ -79,7 +147,38 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="mf.html">Keep Me Moving</a>
+          <a id="clockDisplay" class="navbar-brand clockStyle" href="mf.html">Keep Me Moving</a>
+          <script type="text/javascript" language="javascript">
+            function renderTime() {
+              var currentTime = new Date();
+              var diem = "AM";
+              var h = currentTime.getHours();
+              var m = currentTime.getMinutes();
+                var s = currentTime.getSeconds();
+              setTimeout('renderTime()',1000);
+                if (h == 0) {
+                h = 12;
+              } else if (h > 12) { 
+                h = h - 12;
+                diem="PM";
+              }
+              if (h < 10) {
+                h = "0" + h;
+              }
+              if (m < 10) {
+                m = "0" + m;
+              }
+              if (s < 10) {
+                s = "0" + s;
+              }
+                var myClock = document.getElementById('clockDisplay');
+              myClock.textContent = h + ":" + m + ":" + s + " " + diem;
+
+              //The line below allows the clock the clock to work in internet explorer.//
+              myClock.innerText = h + ":" + m + ":" + s + " " + diem;
+            }
+            renderTime();
+          </script>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -87,6 +186,7 @@
             <li><a href="workout.html">Workouts</a></li>
             <li><a href="thestory.html">The Story</a></li>
             <li><a href="dances.html">Learn The Dances</a></li>
+            <li><a href="mf.html">Playtime</a></li>
           </ul>
           
         </div><!--/.nav-collapse -->
@@ -96,10 +196,15 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron" style="background-color:white; margin-left: -90px;
-margin-right: 90px;">
-        <div class="video-container">
-  			<article id="mainContent">
+      <div class="jumbotron" style="margin-left: 15px; margin-right: 90px;">
+        
+          <p>dfsfsf</p>
+          <div id="memory_board"></div>
+          <script>newBoard();</script>
+        <article id="mainContent">
+           <div>
+        <p>This is Dstar</p>
+      </div>
   <h1>Student Survey Cube</h1>
   <p>We&rsquo;ve been providing fine art and design education for over 150 years, but we're very much focused on the present and future. Please take the short survey below to help us better understand&#8212;and fulfill&#8212;your desires and needs. </p>
   <div id="theArt">
@@ -312,21 +417,20 @@ margin-right: 90px;">
     </div>
   </div>
 </article>
-		</div>
-        
+    </div>
       </div>
- 	 	
+    
     </div> <!-- /container -->
     
     <div class="container">
-    	<footer class="col-md-12">
-    		<div class-"row">
-    			<div class="col-md-3"><img src="img/02_facebook.PNG" alt="KMM Banner"></div>
-    			<div class="col-md-3"><img src="img/01_twitter.PNG" alt="KMM Banner"></div>
-    			<div class="col-md-3"><img src="img/03_youtube.PNG" alt="KMM Banner"></div>
-    			<div class="col-md-3"><img src="img/10_instagram.PNG" alt="KMM Banner"></div>
-    		</div>
-    	</div>
+      <footer class=" col-md-12">
+        <div class-"row">
+          <div class="col-md-3"><img src="img/02_facebook.PNG" alt="KMM Banner"></div>
+          <div class="col-md-3"><img src="img/01_twitter.PNG" alt="KMM Banner"></div>
+          <div class="col-md-3"><img src="img/03_youtube.PNG" alt="KMM Banner"></div>
+          <div class="col-md-3"><img src="img/10_instagram.PNG" alt="KMM Banner"></div>
+        </div>
+      </div>
     </div>
 
 

@@ -141,7 +141,7 @@ em {
 }
 /*layout styles*/ 
 body {
-	width: 960px;
+	
 	position: relative;
 	margin: 0 auto;
 }
@@ -151,6 +151,7 @@ article#mainContent {
 	width: 607px;
 	margin-top: 3px;
 	padding: 16px;
+	margin-bottom: 40px;
 }
 article#spotlight {
 	margin-bottom: 0;
@@ -578,61 +579,7 @@ select {
 select[multiple]{
 	height: 162px;
 }
-/*footer styles	*/
-footer#pageFooter {
-	background: rgb(249, 228, 130);
-	color: rgb(65, 64, 66);
-	padding: 32px 0 16px;
-}
-footer h3 {
-	font-family: Bitter, Georgia, Times, "Times New Roman", serif;
-	text-transform: uppercase;
-	font-size: 1em;
-	text-align: center;
-	margin-bottom: 1em;
-}
-footer p {
-	font-size: .7em;
-	text-align: center;
-	clear: both;
-}
-footer p a{
-	color: rgb(65, 64, 66);
-	text-decoration: underline;
-}
-footer ul a{
-	color: rgb(65, 64, 66);
-}
-footer a:hover {
-	color: white;
-}
-footer .col {
-	float: left;
-	width: 286px;
-	border-right: 2px solid rgba(191, 191, 191, .8);
-	margin-bottom: 1em;
-	padding-left: 32px;
-}
-footer .col:last-child {
-	border: none;
-}
-footer ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	font-size: .6em;
-}
-footer li {
-	margin-bottom: 1em;
-}
-footer .col1 {
-	float: left;
-	width: 130px;
-}
-footer .col2 {
-	float: right;
-	width: 130px;
-}
+
 .alignLeft {
 	float: left;
 }

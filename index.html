@@ -43,7 +43,38 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="mf.html">Keep Me Moving</a>
+          <a id="clockDisplay" class="navbar-brand clockStyle" href="mf.html">Keep Me Moving</a>
+          <script type="text/javascript" language="javascript">
+            function renderTime() {
+              var currentTime = new Date();
+              var diem = "AM";
+              var h = currentTime.getHours();
+              var m = currentTime.getMinutes();
+                var s = currentTime.getSeconds();
+              setTimeout('renderTime()',1000);
+                if (h == 0) {
+                h = 12;
+              } else if (h > 12) { 
+                h = h - 12;
+                diem="PM";
+              }
+              if (h < 10) {
+                h = "0" + h;
+              }
+              if (m < 10) {
+                m = "0" + m;
+              }
+              if (s < 10) {
+                s = "0" + s;
+              }
+                var myClock = document.getElementById('clockDisplay');
+              myClock.textContent = h + ":" + m + ":" + s + " " + diem;
+
+              //The line below allows the clock the clock to work in internet explorer.//
+              myClock.innerText = h + ":" + m + ":" + s + " " + diem;
+            }
+            renderTime();
+          </script>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -51,6 +82,7 @@
             <li><a href="workout.html">Workouts</a></li>
             <li><a href="thestory.html">The Story</a></li>
             <li><a href="dances.html">Learn The Dances</a></li>
+            <li><a href="mf.html">Playtime</a></li>
           </ul>
           
         </div><!--/.nav-collapse -->
