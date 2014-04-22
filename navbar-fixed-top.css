@@ -21,8 +21,6 @@ padding-left: 20px;
 .footer{
 	height: 358px;
 	background-color: red;
-	
-	
 }
 
 .navbar-default {
@@ -32,8 +30,14 @@ padding-left: 20px;
   /*height: 100px;*/
 }
 
-.navbar-nav {
-background-color: gold;
+.img-responsive2{
+  float: left;
+  margin-left: 20px;
+  background-color: yellow;
+}
+
+.img-responsive3{
+  float: right;
 }
 
 .jumbotron {
@@ -50,8 +54,8 @@ background-color: gold;
   margin-top: 230px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #eee;
 }
+
 
 
 .navbar-nav {
@@ -59,7 +63,7 @@ float: left;
 margin: 0;
 padding-left: 20px;
 padding-top: 10px;
-width: 1007px;
+width: 840px;
 }
 
 .navbar .nav,
@@ -79,11 +83,15 @@ width: 1007px;
    position: relative; /* keeps the aspect ratio */ 
    padding-bottom: 56.25%; /* fine tunes the video positioning */ 
    padding-top: 60px; overflow: hidden;
+   margin-left: 10px;
 }
 
 .video-container iframe,
 .video-container object,
 .video-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
+/* Memory Game */ 
 
 div#memory_board{
   background:#fff;
@@ -95,12 +103,13 @@ div#memory_board{
 
   div#memory_board > div{
   background: url(punch.jpg) no-repeat;
-  border:#000 1px solid;
   width:71px;
   height:71px;
   float:left;
   margin:18px;
   padding:57px;
-  font-size:64px;
+  font-size:44px;
   cursor:pointer;
   text-align:center;
+
+
